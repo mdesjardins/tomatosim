@@ -1,0 +1,47 @@
+%h1 A Tomato plant named #{@tomato.name}
+%h2 Turn: #{@tomato.next_turn}
+.row.game-area
+  .col-sm-4.cute
+    = render partial: "cute"
+  .col-sm-5.linegraph
+    = render partial: "linegraph"
+  .col-sm-3.form
+    = render partial: "form"
+.row
+  .col-sm-12
+    .well
+      .row
+        .col-sm-3
+          Height: #{@tomato.height}
+        .col-sm-3
+          Root Depth: #{@tomato.depth}
+        .col-sm-3
+          Plant Health: #{@tomato.plant_health.round}%
+        .col-sm-3
+          Root Health: #{@tomato.root_health.round}%
+
+- if @tomato.turns.present?
+  .row
+    .col-sm-12
+      %table.table
+        %thead
+          %tr
+            %th ID
+            %th Nitrogen
+            %th Phosphorus
+            %th Potassium
+            %th Water
+            %th Light
+        %tbody
+          - @tomato.turns.order(id: :desc).each do |turn|
+            %tr
+              %td= turn.id
+              %td
+                #{turn.accum_nitrogen.round} (added #{turn.nitrogen})
+              %td
+                #{turn.accum_phosphorus.round} (added #{turn.phosphorus})
+              %td
+                #{turn.accum_potassium.round} (added #{turn.potassium})
+              %td
+                #{turn.accum_water.round} (added #{turn.water})
+              %td= turn.light

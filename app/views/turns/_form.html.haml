@@ -1,0 +1,19 @@
+.turn-form
+  = form_for @turn do |f|
+    .form-group
+      = f.label :nitrogen, "Nitrogen (0-100)"
+      = f.text_field :nitrogen, class: "form-control"
+    .form-group
+      = f.label :phosporus, "Phosphorus (0-100)"
+      = f.text_field :phosphorus, class: "form-control"
+    .form-group
+      = f.label :potassium, "Potassium (0-100)"
+      = f.text_field :potassium, class: "form-control"
+    .form-group
+      = f.label :water, "Water (0-100)"
+      = f.text_field :water, class: "form-control"
+    .form-group
+      = f.label :sunlight, "Light (0-100)"
+      = f.text_field :light, class: "form-control"
+    .form-group
+      = f.submit "Submit Turn", class: "btn btn-primary"

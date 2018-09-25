@@ -1,0 +1,37 @@
+// Place all the styles related to the Turns controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.game-area {
+  height: 600px;
+}
+
+.turn-form {
+  padding: 10px;
+}
+
+.cute {
+  position: relative;
+}
+
+.cute .plant {
+  background-color: #add8e6;
+  height: 400px;
+
+  width: 100%;
+  img {
+    top: 300px;
+    height: 100px;
+    position: relative;
+  }
+}
+
+.cute .root {
+  background-color: #c1836b;
+  height: 200px;
+  img {
+    top: 0;
+    position: relative;
+    height: 100px;
+  }
+}
