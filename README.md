@@ -1,24 +1,21 @@
-# README
+# Tomatosim
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Rails application that implements a coding challenge provided by Agrilyst. The application is a simple simulator for the growth of a
+tomato plant. After creating (and naming!) your tomato, you take turns adding Nitrogen, Phosphorus, Potassium, Water, and Light to your plant (using a value from 0 to 100). Each nutrient except sunlight has an associated "half-life" that represents the amount of time it takes for that nutrient to dissipate from the environment. If you keep each nutrients at the proper levels, your roots and plants will grow and a tomato will be produced!
 
-Things you may want to cover:
+To run the app, 
 
-* Ruby version
+1. clone the repository `cd` into the directory
 
-* System dependencies
+2. run `bundle install`. 
 
-* Configuration
+3. create the sqlite database schema by running `rake db:migrate`
 
-* Database creation
+4. start the application by running `rails s`
 
-* Database initialization
+5. navigate your web browser to http://localhost:3000/
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+You can run a small suite of tests by running `rspec`.
 
-* Deployment instructions
-
-* ...
+Enjoy!
