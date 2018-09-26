@@ -42,7 +42,7 @@ class GreenhouseService
     # After calling this, we aren't depending on ActiveRecord anymore.
     plant_attributes = plant.attributes
     turns_attributes = plant.turns.order(:id).map(&:attributes)
-    new(plant_attributes, turns_attributes, plant.sim_params, new_nutrients).grow
+    new(plant_attributes, turns_attributes, plant.sim_params[plant.plant_type.to_sym], new_nutrients).grow
   end
 
   def initialize(plant, turns, sim_params, turn_params)

@@ -1,8 +1,12 @@
 .jumbotron
-  %h1 Welcome to Tomato Simulator&trade;!
+  %h1 Welcome to Plant Simulator&trade;!
   = image_tag "farmer.png", alt: "Farmer", role: "presentation"
-= form_for @tomato do |f|
+= form_for @plant do |f|
   .form-group
     = f.label :name
     = f.text_field :name, class: "form-control"
+    .form-group
+      - @plant.sim_params.keys.each do |plant_type|
+        = plant_type
+        = f.radio_button :plant_type, plant_type
   = f.submit "Start a New Game", class: "btn btn-primary"

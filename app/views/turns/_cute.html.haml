@@ -1,5 +1,5 @@
 .text-center
   .plant
-    = image_tag "plant_sprite_#{'%02d' % @tomato.height}"
+    = image_tag "plant_sprite_#{'%02d' % @plant.height}"
   .root
-    = image_tag "root_sprite_#{@tomato.depth.to_i}"
+    = image_tag "root_sprite_#{@plant.depth.to_i}"

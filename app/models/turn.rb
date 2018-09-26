@@ -1,5 +1,5 @@
 class Turn < ApplicationRecord
-  belongs_to :tomato
+  belongs_to :plant
 
   validates :nitrogen, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 100 }
   validates :phosphorus, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 100 }

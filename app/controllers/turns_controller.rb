@@ -1,21 +1,21 @@
 class TurnsController < ApplicationController
   def new
-    @tomato = Tomato.find(params[:id])
-    @turn = Turn.new(tomato: @tomato)
-    flash[:notice] = "You win!" if @tomato.has_fruit?
+    @plant = Plant.find(params[:id])
+    @turn = Turn.new(plant: @plant)
+    flash[:notice] = "You win!" if @plant.has_fruit?
   end
 
   def create
-    @tomato = Tomato.find(params[:id])
-    @turn = Turn.new(grow_params.merge(tomato: @tomato))
+    @plant = Plant.find(params[:id])
+    @turn = Turn.new(grow_params.merge(plant: @plant))
 
-    growth = GreenhouseService.grow(@tomato, grow_params)
+    growth = GreenhouseService.grow(@plant, grow_params)
     if persist_turn(growth)
-      redirect_to new_turn_path(@tomato)
+      redirect_to new_turn_path(@plant)
     else
       turn_errors = @turn.errors.full_messages.to_sentence
-      tomato_errors = @tomato.errors.full_messages.to_sentence
-      flash[:error] = ["Failed to create new turn", turn_errors, tomato_errors].join(", ")
+      plant_errors = @plant.errors.full_messages.to_sentence
+      flash[:error] = ["Failed to create new turn", turn_errors, plant_errors].join(", ")
       render :new
     end
   end
@@ -24,9 +24,9 @@ class TurnsController < ApplicationController
 
   def persist_turn(growth)
     @turn.update_attributes(growth[:turn]) &&
-      @tomato.update_attributes(growth[:plant]) &&
+      @plant.update_attributes(growth[:plant]) &&
       @turn.save &&
-      @tomato.save
+      @plant.save
   end
 
   def grow_params

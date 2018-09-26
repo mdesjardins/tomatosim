@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_21_132936) do
+ActiveRecord::Schema.define(version: 2018_09_26_190517) do
 
-  create_table "tomatoes", force: :cascade do |t|
+  create_table "plants", force: :cascade do |t|
     t.string "name"
     t.float "height", default: 0.0, null: false
     t.float "depth", default: 0.0, null: false
@@ -20,10 +20,11 @@ ActiveRecord::Schema.define(version: 2018_09_21_132936) do
     t.float "root_health", default: 100.0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "plant_type"
   end
 
   create_table "turns", force: :cascade do |t|
-    t.integer "tomato_id"
+    t.integer "plant_id"
     t.float "nitrogen", default: 0.0
     t.float "phosphorus", default: 0.0
     t.float "potassium", default: 0.0
@@ -35,7 +36,7 @@ ActiveRecord::Schema.define(version: 2018_09_21_132936) do
     t.float "light", default: 0.0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["tomato_id"], name: "index_turns_on_tomato_id"
+    t.index ["plant_id"], name: "index_turns_on_plant_id"
   end
 
 end

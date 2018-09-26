@@ -1,5 +1,5 @@
-%h1 A Tomato plant named #{@tomato.name}
-%h2 Turn: #{@tomato.next_turn}
+%h1 A #{@plant.plant_type} named #{@plant.name}
+%h2 Turn: #{@plant.next_turn}
 .row.game-area
   .col-sm-4.cute
     = render partial: "cute"
@@ -12,15 +12,15 @@
     .well
       .row
         .col-sm-3
-          Height: #{@tomato.height}
+          Height: #{@plant.height}
         .col-sm-3
-          Root Depth: #{@tomato.depth}
+          Root Depth: #{@plant.depth}
         .col-sm-3
-          Plant Health: #{@tomato.plant_health.round}%
+          Plant Health: #{@plant.plant_health.round}%
         .col-sm-3
-          Root Health: #{@tomato.root_health.round}%
+          Root Health: #{@plant.root_health.round}%
 
-- if @tomato.turns.present?
+- if @plant.turns.present?
   .row
     .col-sm-12
       %table.table
@@ -33,7 +33,7 @@
             %th Water
             %th Light
         %tbody
-          - @tomato.turns.order(id: :desc).each do |turn|
+          - @plant.turns.order(id: :desc).each do |turn|
             %tr
               %td= turn.id
               %td
