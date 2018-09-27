@@ -39,6 +39,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'haml'                       # mdd - because erb is yuck.
 gem 'bootstrap-sass', '~> 3.3.7' # mdd - because bootstrap is easy and this is not a production enterprise application.
+gem 'chart-js-rails'             # mdd - for nutrient charts
 
 
 group :development, :test do

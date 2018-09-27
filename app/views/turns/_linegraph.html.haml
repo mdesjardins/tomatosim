@@ -1,1 +1,6 @@
-TODO: Line graph here.
+= hidden_field_tag :nitrogen_levels, @plant.turns.map { |turn| { x: turn.id, y: turn.accum_nitrogen } }.to_json
+= hidden_field_tag :phosphorus_levels, @plant.turns.map(&:accum_phosphorus).to_json
+= hidden_field_tag :potassium_levels, @plant.turns.map(&:accum_potassium).to_json
+= hidden_field_tag :water_levels, @plant.turns.map(&:accum_water).to_json
+= hidden_field_tag :light_levels, @plant.turns.map(&:light).to_json
+%canvas#nutrients-chart
