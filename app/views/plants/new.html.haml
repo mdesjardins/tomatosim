@@ -5,8 +5,13 @@
   .form-group
     = f.label :name
     = f.text_field :name, class: "form-control"
-    .form-group
+  .form-group
+    %fieldset
+      %legend Choose your plant type
       - @plant.sim_params.keys.each do |plant_type|
-        = plant_type
-        = f.radio_button :plant_type, plant_type
+        .radio
+          = label_tag do
+            = f.radio_button :plant_type, plant_type
+            = plant_type
+
   = f.submit "Start a New Game", class: "btn btn-primary"
